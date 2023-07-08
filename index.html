@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Number Guessing</title>
+</head>
+
+<body>
+    <header>
+        <h1>Try To Guess The Number</h1>
+        <p class="between">1 &lt; The Number &lt; 20</p>
+        <button class="btn restart">Restart</button>
+        <div class="number">?</div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="line" viewBox="1 0 95 15">
+            <path d="M0 10 Q 23 2 50 20.5 Q 60 10 70 10 Q 85 -1 100 10" stroke="#adf3e1" stroke-width="1.25"
+                stroke-dasharray="6 1" fill="none">
+            </path>
+        </svg>
+    </header>
+
+
+    <main>
+        <section class="left">
+            <input type="number" class="guess" />
+            <button class="btn check">Guess!</button>
+        </section>
+        <section class="right">
+            <p class="message">Start guessing...</p>
+            <p class="label-score">💯 Result: <span class="score">20</span></p>
+            <p class="label-highscore">
+                🥇 Record: <span class="highscore">0</span>
+            </p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
