@@ -143,7 +143,7 @@ h1 {
     height: 3rem;
 }
 
-.label-score {
+.label-result {
     margin-bottom: 2.5rem;
 }
 
@@ -155,6 +155,7 @@ h1 {
         7px 7px 20px 0px rgba(0, 0, 0, .1),
         4px 4px 5px 0px rgba(0, 0, 0, .1);
     outline: none;
+    cursor: pointer;
 }
 
 .check:after {
