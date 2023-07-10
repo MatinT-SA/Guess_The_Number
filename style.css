@@ -70,13 +70,14 @@ h1 {
     background: #adf3e1;
     color: #2c2c2c;
     font-size: 6rem;
-    width: 15rem;
+    width: 16rem;
     padding: 3rem 0rem;
     text-align: center;
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, 80%);
+    border-radius: 50% 50% 10% 10%;
 }
 
 .between {
@@ -114,6 +115,7 @@ h1 {
     display: block;
     margin-bottom: 2.5rem;
     outline: none;
+    border-radius: 15px;
 }
 
 .btn {
@@ -126,7 +128,7 @@ h1 {
     padding: 2rem 3rem;
     cursor: pointer;
     transition: all .2s ease-in-out;
-    border-radius: 3px 1px 10px 2px;
+    border-radius: 5px 3px 12px 4px;
     transition: .3s all ease-in;
     overflow: hidden;
 }
