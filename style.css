@@ -101,6 +101,7 @@ h1 {
     animation-fill-mode: forwards;
     left: 4.5rem;
     top: 3.5rem;
+    color: white;
 }
 
 .guess {
