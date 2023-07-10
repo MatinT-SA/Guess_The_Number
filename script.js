@@ -1,3 +1,5 @@
+let result = 10;
+
 const randomNumber = Math.trunc(Math.random() * 100) + 1;
 let previousGuess = null;
 let previousComparison = null;
@@ -5,7 +7,6 @@ document.querySelector('.number').textContent = randomNumber;
 
 function getValueOfCheckButton() {
     const guess = Number(document.querySelector('.guess').value);
-    // const flag = null;
 
     console.log(guess);
 
@@ -22,7 +23,8 @@ function getValueOfCheckButton() {
             }
             previousGuess = guess;
 
-        } else {
+        }
+        else {
             if (guess === randomNumber) {
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
                 previousGuess = guess;
@@ -45,7 +47,15 @@ function getValueOfCheckButton() {
                 previousGuess = guess;
             }
         }
-    } else {
+        if (result > 1) {
+            result = result - 1;
+            document.querySelector('.result').textContent = result;
+        } else {
+            document.querySelector('.message').textContent = "Game Over!";
+            document.querySelector('.result').textContent = 0;
+        }
+    }
+    else {
         document.querySelector('.message').textContent = '🤨 Please Enter A Number!';
     }
 }
