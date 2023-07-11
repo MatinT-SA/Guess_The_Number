@@ -12,42 +12,55 @@ function getValueOfCheckButton() {
     console.log(guess);
 
     if (guess) {
+        // When there is a number
         if (previousGuess === null || previousComparison === null) {
+            // When this is the first guess
             if (guess === randomNumber) {
+                // When the player wins on the first guess
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
             } else if (guess > randomNumber) {
+                // When the first guess is higher than our random number
                 document.querySelector('.message').textContent = 'Too High... Slow Down, Bruh 😁';
                 previousComparison = "higher";
             } else {
+                // When the first guess is lower than our random number
                 document.querySelector('.message').textContent = 'Too Low... Higher 🧗‍♀️'
                 previousComparison = "lower";
             }
             previousGuess = guess;
-
         }
         else {
+            // When this is not the first guess
             if (guess === randomNumber) {
+                // When the player wins on the second or so guess
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
                 previousGuess = guess;
             }
             else if (guess > randomNumber) {
+                // When the second guess is higher than our random number
                 if (previousComparison === "lower") {
+                    // When the second guess is higher and the previous guess is lower than our random number
                     document.querySelector('.message').textContent = 'Too High... Slow Down, Bruh 😁';
                 } else {
+                    // When the second guess is higher and the previous guess is higher than our random number
                     document.querySelector('.message').textContent = 'Still Too High... Let the Sky Fall 😉';
                 }
                 previousComparison = "higher";
                 previousGuess = guess;
             } else {
+                // When the second guess is lower than our random number
                 if (previousComparison === "higher") {
+                    // When the second guess is lower and our previous guess is higher
                     document.querySelector('.message').textContent = 'Too Low... Higher 🧗‍♀️'
                 } else {
+                    // When the second guess is lower and our previous guess is lower
                     document.querySelector('.message').textContent = 'Still too low... More 🙄';
                 }
                 previousComparison = "lower";
                 previousGuess = guess;
             }
         }
+        // determining the game over
         if (result > 1) {
             result = result - 1;
             document.querySelector('.result').textContent = result;
@@ -57,13 +70,16 @@ function getValueOfCheckButton() {
         }
     }
     else {
+        // No number has been entered
         document.querySelector('.message').textContent = '🤨 Please Enter A Number!';
     }
 }
 
+// restart button
 function restartButton() {
     enteredNumber.value = null;
 }
 
+// Event handlers
 document.querySelector('.check').addEventListener('click', getValueOfCheckButton);
 document.querySelector('.restart').addEventListener('click', restartButton);
