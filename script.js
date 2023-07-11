@@ -18,6 +18,11 @@ function getValueOfCheckButton() {
             if (guess === randomNumber) {
                 // When the player wins on the first guess
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
+
+                document.querySelector('body').style.background = 'radial-gradient(ellipse at 50% 50%, rgba(50, 223, 23, 1) 0%, rgba(133, 95, 95, 1) 32%, rgba(81, 106, 140, 1) 70%, rgba(116, 210, 24, 1) 100%)';
+                document.querySelector('.number').style.width = '22rem';
+                document.querySelector('.number').style.borderRadius = '10% 10% 50% 50%';
+                document.querySelector('.line').style.marginTop = '14rem';
             } else if (guess > randomNumber) {
                 // When the first guess is higher than our random number
                 document.querySelector('.message').textContent = 'Too High... Slow Down, Bruh 😁';
@@ -34,6 +39,8 @@ function getValueOfCheckButton() {
             if (guess === randomNumber) {
                 // When the player wins on the second or so guess
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
+
+                document.querySelector('body').style.background = 'radial-gradient(ellipse at 50% 50%, rgba(50, 223, 23, 1) 0%, rgba(133, 95, 95, 1) 32%, rgba(81, 106, 140, 1) 70%, rgba(116, 210, 24, 1) 100%)';
                 previousGuess = guess;
             }
             else if (guess > randomNumber) {
