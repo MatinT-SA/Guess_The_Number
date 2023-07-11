@@ -1,4 +1,5 @@
 let result = 10;
+const enteredNumber = document.querySelector('.guess');
 
 const randomNumber = Math.trunc(Math.random() * 100) + 1;
 let previousGuess = null;
@@ -60,4 +61,9 @@ function getValueOfCheckButton() {
     }
 }
 
+function restartButton() {
+    enteredNumber.value = null;
+}
+
 document.querySelector('.check').addEventListener('click', getValueOfCheckButton);
+document.querySelector('.restart').addEventListener('click', restartButton);
