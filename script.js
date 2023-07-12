@@ -23,6 +23,13 @@ function getValueOfCheckButton() {
                 document.querySelector('.number').style.width = '22rem';
                 document.querySelector('.number').style.borderRadius = '10% 10% 50% 50%';
                 document.querySelector('.line').style.marginTop = '14rem';
+                document.querySelector('.number').style.transition = 'width .4s ease-in-out';
+                document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
+                document.querySelector('.line path') = 'linear-gradient(90deg, rgba(20, 20, 103, 1) 0%, rgba(59, 59, 163, 1) 56%, rgba(170, 15, 170, 1) 100%)';
+                document.querySelector('.number').style.color = 'white';
+                document.querySelector('.number').style.textShadow = "4px 4px 8px green";
+                document.querySelector('.number').style.background = 'linear-gradient(90deg, rgba(20, 20, 103, 1) 0%, rgba(59, 59, 163, 1) 56%, rgba(170, 15, 170, 1) 100%)';
+
             } else if (guess > randomNumber) {
                 // When the first guess is higher than our random number
                 document.querySelector('.message').textContent = 'Too High... Slow Down, Bruh 😁';
