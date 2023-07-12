@@ -41,6 +41,11 @@ function getValueOfCheckButton() {
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
 
                 document.querySelector('body').style.background = 'radial-gradient(ellipse at 50% 50%, rgba(50, 223, 23, 1) 0%, rgba(133, 95, 95, 1) 32%, rgba(81, 106, 140, 1) 70%, rgba(116, 210, 24, 1) 100%)';
+                document.querySelector('body').style.background = 'radial-gradient(ellipse at 50% 50%, rgba(50, 223, 23, 1) 0%, rgba(133, 95, 95, 1) 32%, rgba(81, 106, 140, 1) 70%, rgba(116, 210, 24, 1) 100%)';
+                document.querySelector('.number').style.width = '22rem';
+                document.querySelector('.number').style.borderRadius = '10% 10% 50% 50%';
+                document.querySelector('.line').style.marginTop = '14rem';
+
                 previousGuess = guess;
             }
             else if (guess > randomNumber) {
