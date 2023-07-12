@@ -19,16 +19,15 @@ function getValueOfCheckButton() {
                 // When the player wins on the first guess
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
 
-                document.querySelector('body').style.background = 'radial-gradient(ellipse at 50% 50%, rgba(50, 223, 23, 1) 0%, rgba(133, 95, 95, 1) 32%, rgba(81, 106, 140, 1) 70%, rgba(116, 210, 24, 1) 100%)';
+                document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(38, 187, 5, 1) 0%, rgba(3, 217, 84, 1) 77%)';
                 document.querySelector('.number').style.width = '22rem';
                 document.querySelector('.number').style.borderRadius = '10% 10% 50% 50%';
                 document.querySelector('.line').style.marginTop = '14rem';
                 document.querySelector('.number').style.transition = 'width .4s ease-in-out';
                 document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
-                document.querySelector('.line path') = 'linear-gradient(90deg, rgba(20, 20, 103, 1) 0%, rgba(59, 59, 163, 1) 56%, rgba(170, 15, 170, 1) 100%)';
                 document.querySelector('.number').style.color = 'white';
                 document.querySelector('.number').style.textShadow = "4px 4px 8px green";
-                document.querySelector('.number').style.background = 'linear-gradient(90deg, rgba(20, 20, 103, 1) 0%, rgba(59, 59, 163, 1) 56%, rgba(170, 15, 170, 1) 100%)';
+                document.querySelectorAll('.txt').style.color = 'red';
 
             } else if (guess > randomNumber) {
                 // When the first guess is higher than our random number
