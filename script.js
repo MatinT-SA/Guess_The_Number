@@ -19,7 +19,7 @@ function getValueOfCheckButton() {
                 // When the player wins on the first guess
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
 
-                document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(38, 187, 5, 1) 0%, rgba(3, 217, 84, 1) 77%)';
+                document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.width = '22rem';
                 document.querySelector('.number').style.borderRadius = '10% 10% 50% 50%';
                 document.querySelector('.line').style.marginTop = '14rem';
@@ -27,7 +27,6 @@ function getValueOfCheckButton() {
                 document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
                 document.querySelector('.number').style.color = 'white';
                 document.querySelector('.number').style.textShadow = "4px 4px 8px green";
-                document.querySelectorAll('.txt').style.color = 'red';
 
             } else if (guess > randomNumber) {
                 // When the first guess is higher than our random number
