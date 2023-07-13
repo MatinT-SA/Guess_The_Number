@@ -6,6 +6,37 @@ let previousGuess = null;
 let previousComparison = null;
 document.querySelector('.number').textContent = randomNumber;
 
+function showCongratulationsPopup() {
+    setTimeout(function () {
+        const popupContainer = document.createElement('div');
+        popupContainer.className = 'popup-container';
+
+        const popupMessage = document.createElement('div');
+        popupMessage.className = 'popup-message';
+        popupMessage.textContent = "Hooray! You finally guessed it \nYou can restart the match";
+
+        popupContainer.appendChild(popupMessage);
+        document.body.appendChild(popupContainer);
+
+        // Trigger the transition by adding the "active" class
+        setTimeout(function () {
+            popupContainer.classList.add('active');
+            popupMessage.classList.add('active');
+        }, 10); // Use a small delay to ensure transition effect is applied
+
+        setTimeout(function () {
+            // Remove the "active" class to trigger the transition for disappearance
+            popupContainer.classList.remove('active');
+            popupMessage.classList.remove('active');
+
+            // Remove the popup container after the transition completes
+            setTimeout(function () {
+                popupContainer.remove();
+            }, 800); // Use the transition duration as the delay for removal
+        }, 5000);
+    }, 1300);
+}
+
 function getValueOfCheckButton() {
     const guess = Number(document.querySelector('.guess').value);
 
@@ -17,16 +48,29 @@ function getValueOfCheckButton() {
             // When this is the first guess
             if (guess === randomNumber) {
                 // When the player wins on the first guess
+                const keyframes = `@keyframes rotateAnimation {
+                    0% { transform: rotate(0deg); }
+                    25% { transform: rotate(-15deg); }
+                    50% { transform: rotate(30deg);}
+                    75% { transform: rotate(-40deg);}
+                    100% { transform: rotate(45deg); }
+                }`;
+
+                const style = document.createElement('style');
+                style.innerHTML = keyframes;
+                document.head.appendChild(style);
+
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
+                document.querySelector('.title').textContent = 'Try To Guess Another Number';
 
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
-                document.querySelector('.number').style.width = '22rem';
-                document.querySelector('.number').style.borderRadius = '10% 10% 50% 50%';
+                document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: white; text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
                 document.querySelector('.line').style.marginTop = '14rem';
-                document.querySelector('.number').style.transition = 'width .4s ease-in-out';
                 document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
-                document.querySelector('.number').style.color = 'white';
-                document.querySelector('.number').style.textShadow = "4px 4px 8px green";
+                document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
+                document.querySelector('.restart').style.top = '5rem';
+                // Call the function to show the popup after the user wins the match
+                showCongratulationsPopup();
 
             } else if (guess > randomNumber) {
                 // When the first guess is higher than our random number
