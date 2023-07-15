@@ -231,16 +231,6 @@ h1 {
     /* Final opacity when active */
 }
 
-.restart-button {
-    color: #bb33ff;
-    cursor: pointer;
-}
-
-.restart-button:hover {
-    color: green;
-    /* Change the color to your desired hover color */
-}
-
 @keyframes restartHover {
     0% {
         background-position: 10% 0%;
