@@ -91,13 +91,29 @@ function getValueOfCheckButton() {
             // When this is not the first guess
             if (guess === randomNumber) {
                 // When the player wins on the second or so guess
-                document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
+                const keyframes = `@keyframes rotateAnimation {
+                    0% { transform: rotate(0deg); }
+                    25% { transform: rotate(-15deg); }
+                    50% { transform: rotate(30deg);}
+                    75% { transform: rotate(-40deg);}
+                    100% { transform: rotate(45deg); }
+                }`;
 
-                document.querySelector('body').style.background = 'radial-gradient(ellipse at 50% 50%, rgba(50, 223, 23, 1) 0%, rgba(133, 95, 95, 1) 32%, rgba(81, 106, 140, 1) 70%, rgba(116, 210, 24, 1) 100%)';
-                document.querySelector('body').style.background = 'radial-gradient(ellipse at 50% 50%, rgba(50, 223, 23, 1) 0%, rgba(133, 95, 95, 1) 32%, rgba(81, 106, 140, 1) 70%, rgba(116, 210, 24, 1) 100%)';
-                document.querySelector('.number').style.width = '22rem';
-                document.querySelector('.number').style.borderRadius = '10% 10% 50% 50%';
+                const style = document.createElement('style');
+                style.innerHTML = keyframes;
+                document.head.appendChild(style);
+
+                document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
+                document.querySelector('.title').textContent = 'Try To Guess Another Number';
+
+                document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
+                document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
                 document.querySelector('.line').style.marginTop = '14rem';
+                document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
+                document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
+                document.querySelector('.restart').style.top = '5rem';
+                // Call the function to show the popup after the user wins the match
+                showCongratulationsPopup();
 
                 previousGuess = guess;
             }
