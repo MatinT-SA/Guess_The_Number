@@ -13,16 +13,28 @@ function showCongratulationsPopup() {
 
         const popupMessage = document.createElement('div');
         popupMessage.className = 'popup-message';
-        popupMessage.textContent = "Hooray! You finally guessed it \nYou can restart the match";
+        popupMessage.innerHTML = `<span style="color: #e75480; font-size: 5rem; text-shadow: 0px 0px 6px #ff99dd;">${randomNumber}</span><br><span style="color: #00b300;">Hooray! You finally guessed it</span><br><span style="color: #bb33ff; cursor: pointer;" onclick="restartButtonPopup()">Restart</span>`;
+
+        const closeIcon = document.createElement('i');
+        closeIcon.className = 'close-icon fa fa-times custom-close-icon'; // Add the appropriate CSS classes for the close icon
+        closeIcon.style.cursor = 'pointer';
+        closeIcon.addEventListener('click', function () {
+            closePopup(popupContainer);
+        });
 
         popupContainer.appendChild(popupMessage);
+        popupContainer.appendChild(closeIcon);
         document.body.appendChild(popupContainer);
 
         // Trigger the transition by adding the "active" class
         setTimeout(function () {
             popupContainer.classList.add('active');
             popupMessage.classList.add('active');
-        }, 10); // Use a small delay to ensure transition effect is applied
+        }, 30); // Use a small delay to ensure transition effect is applied
+
+        setTimeout(function () {
+            closePopup(popupContainer);
+        }, 6000);
 
         setTimeout(function () {
             // Remove the "active" class to trigger the transition for disappearance
@@ -33,8 +45,18 @@ function showCongratulationsPopup() {
             setTimeout(function () {
                 popupContainer.remove();
             }, 800); // Use the transition duration as the delay for removal
-        }, 5000);
-    }, 1300);
+        }, 6000);
+    }, 1500);
+}
+
+function closePopup(popupContainer) {
+    // Remove the "active" class to trigger the transition for disappearance
+    popupContainer.classList.remove('active');
+
+    // Remove the popup container after the transition completes
+    setTimeout(function () {
+        popupContainer.remove();
+    }, 800); // Use the transition duration as the delay for removal
 }
 
 function getValueOfCheckButton() {
@@ -139,6 +161,18 @@ function getValueOfCheckButton() {
 // restart button
 function restartButton() {
     enteredNumber.value = null;
+}
+
+// restart button after for when the popup container is up
+function restartButtonPopup() {
+    enteredNumber.value = null;
+    const popupContainer = document.querySelector('.popup-container');
+    if (popupContainer) {
+        popupContainer.classList.remove('active');
+        setTimeout(function () {
+            popupContainer.remove();
+        }, 800);
+    }
 }
 
 // Event handlers

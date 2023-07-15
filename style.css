@@ -207,12 +207,18 @@ h1 {
 
 .popup-message {
     background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 24px;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    font-size: 2rem;
     text-align: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity .6s ease-out;
+}
+
+.custom-close-icon {
+    color: red;
+    top: 10px;
+    left: 10px;
 }
 
 .popup-container.active {
