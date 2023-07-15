@@ -13,7 +13,7 @@ function showCongratulationsPopup() {
 
         const popupMessage = document.createElement('div');
         popupMessage.className = 'popup-message';
-        popupMessage.innerHTML = `<span style="color: #e75480; font-size: 5rem; text-shadow: 0px 0px 6px #ff99dd;">${randomNumber}</span><br><span style="color: #00b300;">Hooray! You finally guessed it</span><br><span style="color: #bb33ff; cursor: pointer;" onclick="restartButtonPopup()">Restart</span>`;
+        popupMessage.innerHTML = `<span style="color: #e75480; font-size: 5rem; text-shadow: 0px 0px 6px #ff99dd;">${randomNumber}</span><br><span style="color: #00b300;">Hooray! You finally guessed it</span><br><span style="color: #bb33ff; cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='#dd99ff'" onmouseout="this.style.color='#bb33ff'" onclick="restartButtonPopup()">Restart</span>`;
 
         const closeIcon = document.createElement('i');
         closeIcon.className = 'close-icon fa fa-times custom-close-icon'; // Add the appropriate CSS classes for the close icon
