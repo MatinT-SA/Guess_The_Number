@@ -133,6 +133,7 @@ h1 {
     border-radius: 5px 3px 12px 4px;
     transition: .3s all ease-in;
     overflow: hidden;
+    /* cursor: pointer; */
 }
 
 .btn:hover {
@@ -213,12 +214,6 @@ h1 {
     text-align: center;
     opacity: 0;
     transition: opacity .6s ease-out;
-}
-
-.custom-close-icon {
-    color: red;
-    top: 10px;
-    left: 10px;
 }
 
 .popup-container.active {

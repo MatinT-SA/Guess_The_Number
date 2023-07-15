@@ -13,17 +13,9 @@ function showCongratulationsPopup() {
 
         const popupMessage = document.createElement('div');
         popupMessage.className = 'popup-message';
-        popupMessage.innerHTML = `<span style="color: #e75480; font-size: 5rem; text-shadow: 0px 0px 6px #ff99dd;">${randomNumber}</span><br><br><span style="color: #00b300;">Hooray! You finally guessed it</span><br><br><button style="color: #bb33ff; cursor: pointer; transition: color 0.3s, background .3s; border: 2px solid #bb33ff; border-radius: 5px; padding: 5px 10px; font-family: Kablammo; font-size: 2rem; background: transparent;" onmouseover="this.style.color='#fff'; this.style.background='#bb33ff'" onmouseout="this.style.color='#bb33ff'; this.style.background='#fff'" onclick="restartButtonPopup()">Restart</button>`;
-
-        const closeIcon = document.createElement('i');
-        closeIcon.className = 'close-icon fa fa-times custom-close-icon'; // Add the appropriate CSS classes for the close icon
-        closeIcon.style.cursor = 'pointer';
-        closeIcon.addEventListener('click', function () {
-            closePopup(popupContainer);
-        });
+        popupMessage.innerHTML = `<span style="color: #e75480; font-size: 5rem; text-shadow: 0px 0px 6px #ff99dd;">${randomNumber}</span><br><br><span style="color: #00b300;">Hooray! You finally guessed it</span><br><br><button style="color: #bb33ff; cursor: pointer; transition: color 0.3s, background .3s; border: 2px solid #bb33ff; border-radius: 5px; padding: 5px 10px; font-family: Kablammo; font-size: 2rem; background: transparent;" onmouseover="this.style.color='#fff'; this.style.background='#bb33ff'" onmouseout="this.style.color='#bb33ff'; this.style.background='#fff'" onclick="closePopup()">YOO-HOO</button>`;
 
         popupContainer.appendChild(popupMessage);
-        popupContainer.appendChild(closeIcon);
         document.body.appendChild(popupContainer);
 
         // Trigger the transition by adding the "active" class
@@ -47,16 +39,6 @@ function showCongratulationsPopup() {
             }, 800); // Use the transition duration as the delay for removal
         }, 3000);
     }, 1500);
-}
-
-function closePopup(popupContainer) {
-    // Remove the "active" class to trigger the transition for disappearance
-    popupContainer.classList.remove('active');
-
-    // Remove the popup container after the transition completes
-    setTimeout(function () {
-        popupContainer.remove();
-    }, 800); // Use the transition duration as the delay for removal
 }
 
 function getValueOfCheckButton() {
@@ -86,7 +68,7 @@ function getValueOfCheckButton() {
                 document.querySelector('.title').textContent = 'Try To Guess Another Number';
 
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
-                document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: white; text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+                document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
                 document.querySelector('.line').style.marginTop = '14rem';
                 document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
                 document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
@@ -164,8 +146,7 @@ function restartButton() {
 }
 
 // restart button after for when the popup container is up
-function restartButtonPopup() {
-    enteredNumber.value = null;
+function closePopup() {
     const popupContainer = document.querySelector('.popup-container');
     if (popupContainer) {
         popupContainer.classList.remove('active');
