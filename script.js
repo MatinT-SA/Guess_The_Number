@@ -159,6 +159,24 @@ function getValueOfCheckButton() {
 // restart button
 function restartButton() {
     enteredNumber.value = null;
+
+    const keyframes = `@keyframes rotateAnimation {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-15deg); }
+        50% { transform: rotate(30deg);}
+        75% { transform: rotate(-40deg);}
+        100% { transform: rotate(45deg); }
+    }`;
+
+    document.querySelector('.message').textContent = 'Start Guessing...';
+    document.querySelector('.title').textContent = 'Try To Guess The Number';
+
+    document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
+    document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+    document.querySelector('.line').style.marginTop = '10rem';
+    document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
+    document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out fowards';
+    document.querySelector('.restart').style.top = '3rem';
 }
 
 // restart button after for when the popup container is up
