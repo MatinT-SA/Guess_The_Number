@@ -4,7 +4,7 @@ const enteredNumber = document.querySelector('.guess');
 const randomNumber = Math.trunc(Math.random() * 100) + 1;
 let previousGuess = null;
 let previousComparison = null;
-document.querySelector('.number').textContent = randomNumber;
+// document.querySelector('.number').textContent = randomNumber;
 
 function showCongratulationsPopup() {
     setTimeout(function () {
@@ -67,6 +67,8 @@ function getValueOfCheckButton() {
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
                 document.querySelector('.title').textContent = 'Try To Guess Another Number';
 
+                document.querySelector('.number').textContent = randomNumber;
+
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
                 document.querySelector('.line').style.marginTop = '14rem';
@@ -105,6 +107,8 @@ function getValueOfCheckButton() {
 
                 document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
                 document.querySelector('.title').textContent = 'Try To Guess Another Number';
+
+                document.querySelector('.number').textContent = randomNumber;
 
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
