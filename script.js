@@ -160,13 +160,15 @@ function getValueOfCheckButton() {
 function restartButton() {
     enteredNumber.value = null;
 
-    const keyframes = `@keyframes rotateAnimation {
-        0% { transform: rotate(0deg); }
-        25% { transform: rotate(-15deg); }
-        50% { transform: rotate(30deg);}
-        75% { transform: rotate(-40deg);}
-        100% { transform: rotate(45deg); }
+    const keyframesRestart = `@keyframes undoRotateAnimation {
+        0% { transform: rotate(45deg); }
+        100% { transform: rotate(0deg); }
     }`;
+
+
+    const style = document.createElement('style');
+    style.innerHTML = keyframesRestart;
+    document.head.appendChild(style);
 
     document.querySelector('.message').textContent = 'Start Guessing...';
     document.querySelector('.title').textContent = 'Try To Guess The Number';
@@ -175,7 +177,7 @@ function restartButton() {
     document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
     document.querySelector('.line').style.marginTop = '10rem';
     document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
-    document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out fowards';
+    document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
     document.querySelector('.restart').style.top = '3rem';
 }
 
