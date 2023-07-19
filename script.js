@@ -2,6 +2,7 @@ let result = 10;
 const enteredNumber = document.querySelector('.guess');
 
 const randomNumber = Math.trunc(Math.random() * 100) + 1;
+let hasWon = false;
 let previousGuess = null;
 let previousComparison = null;
 // document.querySelector('.number').textContent = randomNumber;
@@ -69,6 +70,8 @@ function getValueOfCheckButton() {
 
                 document.querySelector('.number').textContent = randomNumber;
 
+                document.querySelector('.result').textContent = result;
+
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
                 document.querySelector('.line').style.marginTop = '14rem';
@@ -76,6 +79,9 @@ function getValueOfCheckButton() {
                 document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
                 document.querySelector('.restart').style.top = '5rem';
                 // Call the function to show the popup after the user wins the match
+
+                hasWon = true;
+
                 showCongratulationsPopup();
 
             } else if (guess > randomNumber) {
@@ -110,6 +116,8 @@ function getValueOfCheckButton() {
 
                 document.querySelector('.number').textContent = randomNumber;
 
+                document.querySelector('.result').textContent = result;
+
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
                 document.querySelector('.line').style.marginTop = '14rem';
@@ -117,6 +125,9 @@ function getValueOfCheckButton() {
                 document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
                 document.querySelector('.restart').style.top = '5rem';
                 // Call the function to show the popup after the user wins the match
+
+                hasWon = true;
+
                 showCongratulationsPopup();
 
                 previousGuess = guess;
@@ -162,27 +173,41 @@ function getValueOfCheckButton() {
 
 // restart button
 function restartButton() {
-    enteredNumber.value = null;
+    if (hasWon) {
+        enteredNumber.value = null;
 
-    const keyframesRestart = `@keyframes undoRotateAnimation {
+        const keyframesRestart = `@keyframes undoRotateAnimation {
         0% { transform: rotate(45deg); }
         100% { transform: rotate(0deg); }
-    }`;
+        }`;
 
+        const style = document.createElement('style');
+        style.innerHTML = keyframesRestart;
+        document.head.appendChild(style);
 
-    const style = document.createElement('style');
-    style.innerHTML = keyframesRestart;
-    document.head.appendChild(style);
+        document.querySelector('.message').textContent = 'Start Guessing...';
+        document.querySelector('.title').textContent = 'Try To Guess The Number';
 
-    document.querySelector('.message').textContent = 'Start Guessing...';
-    document.querySelector('.title').textContent = 'Try To Guess The Number';
+        document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
+        document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+        document.querySelector('.line').style.marginTop = '10rem';
+        document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
+        document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
+        document.querySelector('.restart').style.top = '3rem';
+        hasWon = false;
+    } else {
+        enteredNumber.value = null;
 
-    document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
-    document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
-    document.querySelector('.line').style.marginTop = '10rem';
-    document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
-    document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
-    document.querySelector('.restart').style.top = '3rem';
+        document.querySelector('.message').textContent = 'Start Guessing...';
+        document.querySelector('.title').textContent = 'Try To Guess The Number';
+
+        document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
+        document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+        document.querySelector('.line').style.marginTop = '10rem';
+        document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
+        // document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
+        document.querySelector('.restart').style.top = '3rem';
+    }
 }
 
 // restart button after for when the popup container is up
