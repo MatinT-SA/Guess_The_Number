@@ -42,6 +42,41 @@ function showCongratulationsPopup() {
     }, 1500);
 }
 
+function showGameOverPopup() {
+    setTimeout(function () {
+        const popupContainer = document.createElement('div');
+        popupContainer.className = 'popup-container';
+
+        const popupMessage = document.createElement('div');
+        popupMessage.className = 'popup-message';
+        popupMessage.innerHTML = `<span style="color: #e75480; font-size: 3rem; text-shadow: 0px 0px 6px #ff99dd;">You're out of luck, Game Over! 👀</span><br><br><button style="color: #bb33ff; cursor: pointer; transition: color 0.3s, background .3s; border: 2px solid #bb33ff; border-radius: 5px; padding: 5px 10px; font-family: Kablammo; font-size: 2rem; background: transparent;" onmouseover="this.style.color='#fff'; this.style.background='#bb33ff'" onmouseout="this.style.color='#bb33ff'; this.style.background='#fff'" onclick="closePopup()">Let Me Restart</button>`;
+
+        popupContainer.appendChild(popupMessage);
+        document.body.appendChild(popupContainer);
+
+        // Trigger the transition by adding the "active" class
+        setTimeout(function () {
+            popupContainer.classList.add('active');
+            popupMessage.classList.add('active');
+        }, 30); // Use a small delay to ensure transition effect is applied
+
+        setTimeout(function () {
+            closePopup(popupContainer);
+        }, 6000);
+
+        setTimeout(function () {
+            // Remove the "active" class to trigger the transition for disappearance
+            popupContainer.classList.remove('active');
+            popupMessage.classList.remove('active');
+
+            // Remove the popup container after the transition completes
+            setTimeout(function () {
+                popupContainer.remove();
+            }, 800); // Use the transition duration as the delay for removal
+        }, 3000);
+    }, 0);
+}
+
 function getValueOfCheckButton() {
     const guess = Number(document.querySelector('.guess').value);
 
@@ -71,6 +106,8 @@ function getValueOfCheckButton() {
                 document.querySelector('.number').textContent = randomNumber;
 
                 document.querySelector('.result').textContent = result;
+
+                document.querySelector('.highscore').textContent = result - 1;
 
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
@@ -118,6 +155,8 @@ function getValueOfCheckButton() {
 
                 document.querySelector('.result').textContent = result;
 
+                document.querySelector('.highscore').textContent = result - 1;
+
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
                 document.querySelector('.line').style.marginTop = '14rem';
@@ -160,9 +199,14 @@ function getValueOfCheckButton() {
         if (result > 1) {
             result = result - 1;
             document.querySelector('.result').textContent = result;
+
+            // checking if the entered number is repetitive or not
+
         } else {
             document.querySelector('.message').textContent = "Game Over!";
             document.querySelector('.result').textContent = 0;
+
+            showGameOverPopup();
         }
     }
     else {
