@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kablammo', sans-serif;
+    color: #adf3e1;
+    background: -moz-linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%);
+    background: -o-linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#383838', endColorstr='#020735', GradientType=0);
+    background: -ms-linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%);
+    background: linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%);
+    overflow: hidden;
+
+}
+
+/* LAYOUT */
+header {
+    position: relative;
+    height: 40vh;
+}
+
+main {
+    height: 70vh;
+    color: #adf3e1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.line {
+    margin-top: 10rem;
+}
+
+.right {
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left {
+    width: 40rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ELEMENTS STYLE */
+h1 {
+    font-size: 5rem;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.number {
+    background: #adf3e1;
+    color: #2c2c2c;
+    font-size: 6rem;
+    width: 16rem;
+    padding: 3rem 0rem;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 80%);
+    border-radius: 50% 50% 10% 10%;
+}
+
+.between {
+    font-size: 2rem;
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+}
+
+.restart {
+    position: absolute;
+    top: 3rem;
+    left: 4rem;
+    transition: .6s all ease-in-out;
+}
+
+.restart:hover {
+    background: linear-gradient(45deg, #36a5ff, #b47db2, #056334);
+    background-size: 400% 400%;
+    animation: restartHover 3s ease infinite;
+    animation-fill-mode: forwards;
+    left: 4.5rem;
+    top: 3.5rem;
+    color: white;
+}
+
+.guess {
+    background: none;
+    border: 6px dashed #adf3e1;
+    font-family: inherit;
+    color: inherit;
+    font-size: 4.5rem;
+    padding: 3rem;
+    width: 23rem;
+    text-align: center;
+    display: block;
+    margin-bottom: 2.5rem;
+    outline: none;
+    border-radius: 15px;
+}
+
+.btn {
+    border: none;
+    background-color: #adf3e1;
+    color: #2c2c2c;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: inherit;
+    padding: 2rem 3rem;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    border-radius: 5px 3px 12px 4px;
+    transition: .3s all ease-in;
+    overflow: hidden;
+    /* cursor: pointer; */
+}
+
+.btn:hover {
+    background-color: #1ca7ca;
+}
+
+.message {
+    margin-bottom: 8rem;
+    height: 3rem;
+}
+
+.label-result {
+    margin-bottom: 2.5rem;
+}
+
+.check {
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    cursor: pointer;
+}
+
+.check:after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #adf3e1;
+    background-image: linear-gradient(315deg, #adf3e1 0%, #b621fe 74%);
+    transition: all 0.3s ease;
+}
+
+.check:hover {
+    background: transparent;
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .5),
+        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    color: #fff;
+}
+
+.check:hover:after {
+    -webkit-transform: scale(2) rotate(180deg);
+    transform: scale(2) rotate(180deg);
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .5),
+        inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+.popup-message {
+    background-color: white;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    font-size: 2rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .6s ease-out;
+}
+
+.popup-container.active {
+    opacity: 1;
+    /* Final opacity when active */
+}
+
+.popup-message.active {
+    opacity: 1;
+    /* Final opacity when active */
+}
+
+@keyframes restartHover {
+    0% {
+        background-position: 10% 0%;
+    }
+
+    25% {
+        background-position: 90% 100%;
+    }
+
+    50% {
+        background-position: 10% 0%;
+    }
+
+    75% {
+        background-position: 90% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
