@@ -1,5 +1,6 @@
 let result = 10;
 const enteredNumber = document.querySelector('.guess');
+const guessButton = document.querySelector('.check');
 
 const randomNumber = Math.trunc(Math.random() * 100) + 1;
 let hasWon = false;
@@ -77,6 +78,14 @@ function showGameOverPopup() {
     }, 0);
 }
 
+function updateButtonTitle() {
+    if (!guessButton.disabled) {
+        guessButton.title.disabled;
+    } else {
+        guessButton.title = 'Click On The Restart Button';
+    }
+}
+
 function getValueOfCheckButton() {
     const guess = Number(document.querySelector('.guess').value);
 
@@ -108,6 +117,8 @@ function getValueOfCheckButton() {
                 document.querySelector('.result').textContent = result;
 
                 document.querySelector('.highscore').textContent = result - 1;
+
+                document.querySelector('.check').disabled = true;
 
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
@@ -156,6 +167,8 @@ function getValueOfCheckButton() {
                 document.querySelector('.result').textContent = result;
 
                 document.querySelector('.highscore').textContent = result - 1;
+
+                document.querySelector('.check').disabled = true;
 
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
@@ -266,5 +279,9 @@ function closePopup() {
 }
 
 // Event handlers
+guessButton.addEventListener('mouseenter', updateButtonTitle);
+guessButton.addEventListener('mouseleave', updateButtonTitle);
+guessButton.addEventListener('change', updateButtonTitle);
+
 document.querySelector('.check').addEventListener('click', getValueOfCheckButton);
 document.querySelector('.restart').addEventListener('click', restartButton);
