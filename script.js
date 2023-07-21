@@ -78,14 +78,6 @@ function showGameOverPopup() {
     }, 0);
 }
 
-function updateButtonTitle() {
-    if (!guessButton.disabled) {
-        guessButton.title.disabled;
-    } else {
-        guessButton.title = 'Click On The Restart Button';
-    }
-}
-
 function getValueOfCheckButton() {
     const guess = Number(document.querySelector('.guess').value);
 
@@ -279,9 +271,5 @@ function closePopup() {
 }
 
 // Event handlers
-guessButton.addEventListener('mouseenter', updateButtonTitle);
-guessButton.addEventListener('mouseleave', updateButtonTitle);
-guessButton.addEventListener('change', updateButtonTitle);
-
 document.querySelector('.check').addEventListener('click', getValueOfCheckButton);
 document.querySelector('.restart').addEventListener('click', restartButton);
