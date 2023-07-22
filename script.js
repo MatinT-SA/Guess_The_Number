@@ -285,4 +285,10 @@ function closePopup() {
 
 // Event handlers
 document.querySelector('.check').addEventListener('click', getValueOfCheckButton);
+document.querySelector('.guess').addEventListener('keyup', function (event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.querySelector('.check').click();
+    }
+})
 document.querySelector('.restart').addEventListener('click', restartButton);
