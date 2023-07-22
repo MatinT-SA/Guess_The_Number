@@ -221,6 +221,7 @@ function getValueOfCheckButton() {
             if (randomNumber !== guess) {
                 document.querySelector('.message').textContent = "Game Over!";
                 document.querySelector('.result').textContent = 0;
+                document.querySelector('.check').disabled = true;
 
                 showGameOverPopup();
             }
