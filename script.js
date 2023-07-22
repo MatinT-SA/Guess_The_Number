@@ -1,11 +1,12 @@
 let result = 10;
-const enteredNumber = document.querySelector('.guess');
-const guessButton = document.querySelector('.check');
-
-const randomNumber = Math.trunc(Math.random() * 100) + 1;
 let hasWon = false;
 let previousGuess = null;
 let previousComparison = null;
+
+const enteredNumber = document.querySelector('.guess');
+const guessButton = document.querySelector('.check');
+const randomNumber = Math.trunc(Math.random() * 100) + 1;
+
 // document.querySelector('.number').textContent = randomNumber;
 
 function showCongratulationsPopup() {
@@ -108,7 +109,7 @@ function getValueOfCheckButton() {
 
                 document.querySelector('.result').textContent = result;
 
-                document.querySelector('.highscore').textContent = result - 1;
+                document.querySelector('.highscore').textContent = result;
 
                 document.querySelector('.check').disabled = true;
 
@@ -123,6 +124,8 @@ function getValueOfCheckButton() {
                 hasWon = true;
 
                 showCongratulationsPopup();
+
+                return hasWon;
 
             } else if (guess > randomNumber) {
                 // When the first guess is higher than our random number
@@ -158,7 +161,7 @@ function getValueOfCheckButton() {
 
                 document.querySelector('.result').textContent = result;
 
-                document.querySelector('.highscore').textContent = result - 1;
+                document.querySelector('.highscore').textContent = result;
 
                 document.querySelector('.check').disabled = true;
 
@@ -175,6 +178,8 @@ function getValueOfCheckButton() {
                 showCongratulationsPopup();
 
                 previousGuess = guess;
+
+                return hasWon;
             }
             else if (guess > randomNumber) {
                 // When the second guess is higher than our random number
@@ -203,15 +208,22 @@ function getValueOfCheckButton() {
         // determining the game over
         if (result > 1) {
             result = result - 1;
-            document.querySelector('.result').textContent = result;
+
+            if (hasWon) {
+                document.querySelector('.result').textContent = result + 1;
+            } else {
+                document.querySelector('.result').textContent = result;
+            }
 
             // checking if the entered number is repetitive or not
 
         } else {
-            document.querySelector('.message').textContent = "Game Over!";
-            document.querySelector('.result').textContent = 0;
+            if (randomNumber !== guess) {
+                document.querySelector('.message').textContent = "Game Over!";
+                document.querySelector('.result').textContent = 0;
 
-            showGameOverPopup();
+                showGameOverPopup();
+            }
         }
     }
     else {
@@ -224,6 +236,7 @@ function getValueOfCheckButton() {
 function restartButton() {
     if (hasWon) {
         enteredNumber.value = null;
+        document.querySelector('.number').textContent = '?';
 
         const keyframesRestart = `@keyframes undoRotateAnimation {
         0% { transform: rotate(45deg); }
