@@ -271,10 +271,10 @@ h1 {
         width: 15rem;
     }
 
-    .check {
+    /* .check {
         font-size: 1.5rem;
         padding: 1rem 2rem;
-    }
+    } */
 
     .message {
         font-size: 1.5rem;
@@ -306,5 +306,61 @@ h1 {
         font-size: 4rem;
         width: 13rem;
         padding: 3rem 0rem;
+
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .guess {
+        padding: 1.7rem;
+        font-size: 2.5rem;
+        width: 13rem;
+    }
+
+    .message {
+        font-size: 1.5rem;
+        margin-bottom: 4rem;
+        height: 3rem;
+    }
+
+    .between {
+        font-size: 1.6rem;
+    }
+
+    .result {
+        font-size: 1.2rem;
+    }
+
+    .label-result {
+        font-size: 1.2rem;
+    }
+
+    .label-highscore {
+        font-size: 1.2rem;
+    }
+
+    .highscore {
+        font-size: 1.2rem;
+    }
+
+    .number {
+        font-size: 3rem;
+        width: 10rem;
+        padding: 3rem 0rem;
+        transform: translate(-50%, 60%);
+    }
+
+    .btn {
+        font-size: 1.3rem;
+        padding: 1rem 1.8rem;
     }
 }
