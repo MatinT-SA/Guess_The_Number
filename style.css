@@ -56,6 +56,61 @@ main {
     align-items: center;
 }
 
+.difficulty {
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: ease-out 0.3s;
+    padding: 1rem 2rem;
+    border-radius: 7px;
+    background-color: #adf3e1;
+    color: #2c2c2c;
+    font-weight: bold;
+    font-family: 'Kablammo';
+    cursor: pointer;
+}
+
+.difficulty::after,
+.difficulty::before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    transition: .5s;
+}
+
+.difficulty::after {
+    top: -9px;
+    left: -9px;
+    border-top: 3px solid transparent;
+    border-left: 3px solid transparent;
+}
+
+.difficulty::before {
+    bottom: -9px;
+    right: -9px;
+    border-bottom: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+.difficulty:hover {
+    color: #2c2c2c;
+}
+
+.difficulty:hover::after,
+.difficulty:hover::before {
+    width: 30px;
+    height: 30px;
+    border-color: #adf3e1;
+    color: #adf3e1;
+}
+
 /* ELEMENTS STYLE */
 h1 {
     font-size: 5rem;
@@ -86,6 +141,10 @@ h1 {
     position: absolute;
     top: 3rem;
     right: 4rem;
+}
+
+.number__restart {
+    display: flex;
 }
 
 .restart {
@@ -238,6 +297,8 @@ h1 {
     /* Final opacity when active */
 }
 
+/* Animation */
+
 @keyframes restartHover {
     0% {
         background-position: 10% 0%;
@@ -259,6 +320,8 @@ h1 {
         background-position: 0% 0%;
     }
 }
+
+/* CSS Media Queries */
 
 @media (max-width: 1600px) {
     .title {
@@ -369,5 +432,11 @@ h1 {
     .title {
         font-size: 1.7rem;
         margin-top: 2rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .number__restart {
+        flex-direction: column;
     }
 }

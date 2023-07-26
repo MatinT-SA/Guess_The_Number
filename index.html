@@ -11,9 +11,14 @@
 
 <body>
     <header>
+        <button class="difficulty">Difficulty</button>
         <h1 class="title">Try To Guess The Number</h1>
-        <p class="between">1 &lt; The Number &lt; 100</p>
-        <button class="btn restart">Restart</button>
+        <div class="number__restart">
+            <div class="betweenContainer">
+                <p class="between">1 &lt; The Number &lt; 100</p>
+            </div>
+            <div class="restartContainer"><button class="btn restart">Restart</button></div>
+        </div>
         <div class="number">?</div>
         <svg xmlns="http://www.w3.org/2000/svg" class="line" viewBox="1 0 95 15">
             <path d="M0 10 Q 24 2 50 20.5 Q 58.5 10 70 11 Q 100 0 100 20" stroke="#adf3e1" stroke-width="1.25"
