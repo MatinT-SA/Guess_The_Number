@@ -296,11 +296,11 @@ function changeDifficulty() {
     popupMessage.innerHTML = `
     <span style="color: #2c2c2c; font-size: 3rem; text-shadow: 0px 0px 6px #808000;">Difficulty</span>
     <br><br>
-    <span style="color: #116f57; border-bottom: 2px solid #116f57; display: inline-block; height: 50px; cursor: pointer;transition: color 0.4s;" onmouseover="this.style.color='#ff80aa'" onmouseout="this.style.color='#116f57'">Easy</span>
+    <span style="color: #116f57; border-bottom: 2px solid #116f57; display: inline-block; height: 50px; cursor: pointer;transition: color 0.4s;" onmouseover="this.style.color='#ff80aa'" onmouseout="this.style.color='#116f57'" onclick="setDifficulty('easy')">Easy</span>
     <br>
-    <span style="color: #116f57; border-bottom: 2px solid #116f57; display: inline-block; height: 50px; cursor: pointer; transition: color 0.4s;" onmouseover="this.style.color='#ff8c1a'" onmouseout="this.style.color='#116f57'">Normal</span>
+    <span style="color: #116f57; border-bottom: 2px solid #116f57; display: inline-block; height: 50px; cursor: pointer; transition: color 0.4s;" onmouseover="this.style.color='#ff8c1a'" onmouseout="this.style.color='#116f57'" onclick="setDifficulty('normal')">Normal</span>
     <br>
-    <span style="color: #116f57; display: inline-block; height: 50px; cursor: pointer; transition: color 0.4s;" onmouseover="this.style.color='#cc0000'" onmouseout="this.style.color='#116f57'">Hard</span>
+    <span style="color: #116f57; display: inline-block; height: 50px; cursor: pointer; transition: color 0.4s;" onmouseover="this.style.color='#cc0000'" onmouseout="this.style.color='#116f57'" onclick="setDifficulty('hard')">Hard</span>
     <br><br>
     <button style="color: red; cursor: pointer; transition: color 0.3s, background .3s; border: 2px solid red; border-radius: 5px; padding: 10px 20px; font-family: Kablammo; font-size: 2rem; background: transparent;" onmouseover="this.style.color='#fff'; this.style.background='red'" onmouseout="this.style.color='red'; this.style.background='#fff'" onclick="closePopup()">Close</button>`;
 
@@ -312,6 +312,18 @@ function changeDifficulty() {
         popupContainer.classList.add('active');
         popupMessage.classList.add('active');
     }, 30); // Use a small delay to ensure transition effect is applied
+}
+
+function setDifficulty(difficulty) {
+    let resultNew = document.querySelector('.result').textContent;
+    if (difficulty === 'easy') {
+        resultNew = 15;
+    } else if (difficulty === 'normal') {
+        resultNew = 10;
+    } else if (difficulty === 'hard') {
+        resultNew = 7;
+    }
+    closePopup();
 }
 
 
