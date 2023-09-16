@@ -315,16 +315,21 @@ function changeDifficulty() {
 }
 
 function setDifficulty(difficulty) {
-    let resultNew = document.querySelector('.result').textContent;
     if (difficulty === 'easy') {
-        resultNew = 15;
+        result = 15;
     } else if (difficulty === 'normal') {
-        resultNew = 10;
+        result = 10;
     } else if (difficulty === 'hard') {
-        resultNew = 7;
+        result = 7;
     }
+
+    // Update the result value displayed on the page
+    document.querySelector('.result').textContent = result;
+
     closePopup();
 }
+
+
 
 
 difficulty.addEventListener('click', changeDifficulty);
