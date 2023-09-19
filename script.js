@@ -259,6 +259,9 @@ function restartButton() {
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
         document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
         document.querySelector('.restart').style.top = '3rem';
+
+        document.querySelector('.check').disabled = false;
+
         hasWon = false;
     } else {
         enteredNumber.value = null;

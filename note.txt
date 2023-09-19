@@ -1,0 +1,3 @@
+the problem for restarting the result value based on the difficulty the user has chosen
+
+the problem of counting down the result value based on the hard coded 10 value that I've given to it at the beginning.
