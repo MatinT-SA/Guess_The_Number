@@ -1,4 +1,5 @@
 let result = 10;
+let newResultDifficulty = 10;
 let hasWon = false;
 let previousGuess = null;
 let previousComparison = null;
@@ -260,7 +261,14 @@ function restartButton() {
         document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
         document.querySelector('.restart').style.top = '3rem';
 
+        // enabling the guess button after winning the game
         document.querySelector('.check').disabled = false;
+
+        // resetting the result value after winning the game
+        document.querySelector('.result').textContent = newResultDifficulty;
+        result = newResultDifficulty;
+        previousGuess = null;
+        previousComparison = null;
 
         hasWon = false;
     } else {
@@ -325,6 +333,9 @@ function setDifficulty(difficulty) {
     } else if (difficulty === 'hard') {
         result = 7;
     }
+
+    // New result value based on the difficulty selected
+    newResultDifficulty = result;
 
     // Update the result value displayed on the page
     document.querySelector('.result').textContent = result;
