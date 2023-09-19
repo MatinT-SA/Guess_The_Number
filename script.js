@@ -6,7 +6,7 @@ let previousComparison = null;
 
 const enteredNumber = document.querySelector('.guess');
 const guessButton = document.querySelector('.check');
-const randomNumber = Math.trunc(Math.random() * 100) + 1;
+let randomNumber = Math.trunc(Math.random() * 100) + 1;
 
 const difficulty = document.querySelector('.difficulty');
 
@@ -270,6 +270,9 @@ function restartButton() {
         previousGuess = null;
         previousComparison = null;
 
+        // generating a new randomNumber after winning the game
+        randomNumber = Math.trunc(Math.random() * 100) + 1;
+
         hasWon = false;
     } else {
         enteredNumber.value = null;
@@ -283,6 +286,18 @@ function restartButton() {
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
         // document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
         document.querySelector('.restart').style.top = '3rem';
+
+        // enabling the guess button after winning the game
+        document.querySelector('.check').disabled = false;
+
+        // resetting the result value after winning the game
+        document.querySelector('.result').textContent = newResultDifficulty;
+        result = newResultDifficulty;
+        previousGuess = null;
+        previousComparison = null;
+
+        // generating a new randomNumber after winning the game
+        randomNumber = Math.trunc(Math.random() * 100) + 1;
     }
 }
 
