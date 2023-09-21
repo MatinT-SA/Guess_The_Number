@@ -1,5 +1,6 @@
 let result = 10;
 let newResultDifficulty = 10;
+let highscore = 0;
 let hasWon = false;
 let previousGuess = null;
 let previousComparison = null;
@@ -23,6 +24,11 @@ function showCongratulationsPopup() {
 
         popupContainer.appendChild(popupMessage);
         document.body.appendChild(popupContainer);
+
+        if (result < highscore || highscore === 0) {
+            highscore = result;
+            document.querySelector('.highscore').textContent = highscore;
+        }
 
         // Trigger the transition by adding the "active" class
         setTimeout(function () {
@@ -349,6 +355,8 @@ function setDifficulty(difficulty) {
 
     // New result value based on the difficulty selected
     newResultDifficulty = result;
+    // resetting record when the difficulty has changed
+    document.querySelector('.highscore').textContent = 0;
 
     // Update the result value displayed on the page
     document.querySelector('.result').textContent = result;
