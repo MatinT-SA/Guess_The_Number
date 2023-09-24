@@ -12,7 +12,7 @@ let randomNumber = Math.trunc(Math.random() * 100) + 1;
 const difficulty = document.querySelector('.difficulty');
 
 // Displaying the random number for troubleshooting
-document.querySelector('.number').textContent = randomNumber;
+// document.querySelector('.number').textContent = randomNumber;
 
 function showCongratulationsPopup() {
     setTimeout(function () {
