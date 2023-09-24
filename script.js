@@ -278,9 +278,11 @@ function restartButton() {
         } else {
             document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
             document.querySelector('.line').style.marginTop = '7rem';
+            document.getElementsByTagName('main')[0].style.marginTop = '0';
         }
 
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
+        document.getElementsByTagName('main')[0].style.transition = 'margin-top .4s ease-in-out';
         document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
         document.querySelector('.restart').style.top = '3rem';
 
@@ -295,6 +297,8 @@ function restartButton() {
 
         // generating a new randomNumber after winning the game
         randomNumber = Math.trunc(Math.random() * 100) + 1;
+        // replacing the number value with the new random number generated
+        document.querySelector('.number').textContent = randomNumber;
 
         hasWon = false;
     } else {
@@ -329,6 +333,8 @@ function restartButton() {
 
         // generating a new randomNumber after winning the game
         randomNumber = Math.trunc(Math.random() * 100) + 1;
+        // replacing the number value with the new random number generated
+        document.querySelector('.number').textContent = randomNumber;
     }
 }
 
