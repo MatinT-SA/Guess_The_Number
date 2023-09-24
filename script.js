@@ -242,6 +242,7 @@ function getValueOfCheckButton() {
 
 // restart button
 function restartButton() {
+    const screenWidth = window.innerWidth;
     if (hasWon) {
         enteredNumber.value = null;
         document.querySelector('.number').textContent = '?';
@@ -259,7 +260,12 @@ function restartButton() {
         document.querySelector('.title').textContent = 'Try To Guess The Number';
 
         document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
-        document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+
+        if (screenWidth > 1600) {
+            document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+        } else {
+            document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+        }
         document.querySelector('.line').style.marginTop = '10rem';
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
         document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
@@ -285,7 +291,13 @@ function restartButton() {
         document.querySelector('.title').textContent = 'Try To Guess The Number';
 
         document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
-        document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+
+        if (screenWidth > 1600) {
+            document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+        } else {
+            document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+        }
+
         document.querySelector('.line').style.marginTop = '10rem';
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
         // document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
@@ -363,9 +375,6 @@ function setDifficulty(difficulty) {
 
     closePopup();
 }
-
-
-
 
 difficulty.addEventListener('click', changeDifficulty);
 
