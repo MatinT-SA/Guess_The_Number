@@ -11,7 +11,8 @@ let randomNumber = Math.trunc(Math.random() * 100) + 1;
 
 const difficulty = document.querySelector('.difficulty');
 
-// document.querySelector('.number').textContent = randomNumber;
+// Displaying the random number for troubleshooting
+document.querySelector('.number').textContent = randomNumber;
 
 function showCongratulationsPopup() {
     setTimeout(function () {
@@ -24,11 +25,6 @@ function showCongratulationsPopup() {
 
         popupContainer.appendChild(popupMessage);
         document.body.appendChild(popupContainer);
-
-        if (result < highscore || highscore === 0) {
-            highscore = result;
-            document.querySelector('.highscore').textContent = highscore;
-        }
 
         // Trigger the transition by adding the "active" class
         setTimeout(function () {
@@ -90,6 +86,7 @@ function showGameOverPopup() {
 
 function getValueOfCheckButton() {
     const guess = Number(document.querySelector('.guess').value);
+    const screenWidth = window.innerWidth;
 
     if (guess) {
         // When there is a number
@@ -122,15 +119,22 @@ function getValueOfCheckButton() {
 
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
-                document.querySelector('.line').style.marginTop = '14rem';
                 document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
+                document.getElementsByTagName('main')[0].style.transition = 'margin-top .4s ease-in-out';
                 document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
                 document.querySelector('.restart').style.top = '5rem';
+
                 // Call the function to show the popup after the user wins the match
+                showCongratulationsPopup();
 
                 hasWon = true;
 
-                showCongratulationsPopup();
+                if (screenWidth < 1600) {
+                    document.querySelector('.line').style.marginTop = '9rem';
+                    document.getElementsByTagName('main')[0].style.marginTop = '2rem';
+                } else {
+                    document.querySelector('.line').style.marginTop = '14rem';
+                }
 
                 return hasWon;
 
@@ -174,17 +178,24 @@ function getValueOfCheckButton() {
 
                 document.querySelector('body').style.background = 'radial-gradient(circle at 50% 50%, rgba(3, 73, 25, 1) 0%, rgba(7, 130, 62, 1) 100%)';
                 document.querySelector('.number').style.cssText = 'width: 22rem; border-radius: 10% 10% 50% 50%; color: rgb(100 43 80); text-shadow: 4px 8px 3px rgba(217, 8, 168, 1); transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
-                document.querySelector('.line').style.marginTop = '14rem';
+
                 document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
+                document.getElementsByTagName('main')[0].style.transition = 'margin-top .4s ease-in-out';
                 document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
                 document.querySelector('.restart').style.top = '5rem';
                 // Call the function to show the popup after the user wins the match
+                showCongratulationsPopup();
 
                 hasWon = true;
 
-                showCongratulationsPopup();
-
                 previousGuess = guess;
+
+                if (screenWidth < 1600) {
+                    document.querySelector('.line').style.marginTop = '9rem';
+                    document.getElementsByTagName('main')[0].style.marginTop = '2rem';
+                } else {
+                    document.querySelector('.line').style.marginTop = '14rem';
+                }
 
                 return hasWon;
             }
@@ -263,10 +274,12 @@ function restartButton() {
 
         if (screenWidth > 1600) {
             document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+            document.querySelector('.line').style.marginTop = '10rem';
         } else {
             document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+            document.querySelector('.line').style.marginTop = '7rem';
         }
-        document.querySelector('.line').style.marginTop = '10rem';
+
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
         document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
         document.querySelector('.restart').style.top = '3rem';
@@ -294,11 +307,13 @@ function restartButton() {
 
         if (screenWidth > 1600) {
             document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+            document.querySelector('.line').style.marginTop = '10rem';
         } else {
             document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+            document.querySelector('.line').style.marginTop = '7rem';
         }
 
-        document.querySelector('.line').style.marginTop = '10rem';
+
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
         // document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
         document.querySelector('.restart').style.top = '3rem';
