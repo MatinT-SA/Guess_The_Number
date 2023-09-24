@@ -256,7 +256,6 @@ function restartButton() {
     const screenWidth = window.innerWidth;
     if (hasWon) {
         enteredNumber.value = null;
-        document.querySelector('.number').textContent = '?';
 
         const keyframesRestart = `@keyframes undoRotateAnimation {
         0% { transform: rotate(45deg); }
@@ -299,6 +298,7 @@ function restartButton() {
         randomNumber = Math.trunc(Math.random() * 100) + 1;
         // replacing the number value with the new random number generated
         document.querySelector('.number').textContent = randomNumber;
+        document.querySelector('.number').textContent = '?';
 
         hasWon = false;
     } else {
