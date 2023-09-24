@@ -144,8 +144,8 @@ h1 {
     right: 4rem;
 }
 
-.number__restart {
-    display: flex;
+.between-sm-container {
+    display: none;
 }
 
 .restart {
@@ -203,6 +203,8 @@ h1 {
 .message {
     margin-bottom: 8rem;
     height: 3rem;
+    margin-left: 1rem;
+    text-align: center;
 }
 
 .label-result {
@@ -335,11 +337,6 @@ h1 {
         width: 15rem;
     }
 
-    /* .check {
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
-    } */
-
     .message {
         font-size: 1.5rem;
         margin-bottom: 4rem;
@@ -433,15 +430,119 @@ h1 {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
+    .between {
+        display: none;
+    }
+
+    .between-sm-container {
+        display: block;
+        width: 100%;
+    }
+
+    .between-sm {
+        display: block;
+        left: 40%;
+        top: 6rem;
+        position: absolute;
+        text-align: center;
+    }
+
+    .difficulty {
+        position: absolute;
+        top: 3rem;
+        right: 4rem;
+        transform: none;
+        left: auto;
+    }
+
+    .guess {
+        padding: 1.2rem;
+        font-size: 2rem;
+        width: 10rem;
+    }
+
+    .line {
+        margin-top: 12rem !important;
+    }
+
+    .number {
+        font-size: 2.5rem !important;
+        width: 9rem !important;
+        padding: 2rem 0rem !important;
+    }
+
+    .title {
+        font-size: 1.5rem !important;
+        margin-top: 4rem !important;
+    }
+
+    .between-sm {
+        top: 8rem;
+    }
+
     .title {
         font-size: 1.7rem;
         margin-top: 2rem;
     }
 }
 
-@media (max-width: 520px) {
-    .number__restart {
-        flex-direction: column;
+@media (max-width: 550px) {
+    .difficulty {
+        font-size: 16px;
+        top: 1rem;
+        right: 2rem;
+    }
+
+    .restart {
+        font-size: 16px;
+        top: 1rem;
+        left: 2rem;
+    }
+
+    .check {
+        font-size: 16px;
+    }
+
+    .guess {
+        width: 8rem;
+        padding: 1rem;
+        font-size: 1.8rem;
+    }
+
+    .between-sm {
+        left: 35%;
+    }
+
+    .title {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .difficulty {
+        right: 1rem;
+        padding: .75rem 1.5rem;
+    }
+
+    .restart {
+        left: 1rem;
+        padding: .75rem 1.5rem;
+    }
+
+    .between-sm {
+        left: 28%;
+    }
+
+    .line {
+        margin-top: 15rem !important;
+    }
+
+    .message {
+        font-size: 1rem;
+    }
+
+    .popup-message {
+        padding: 4rem 1rem;
     }
 }

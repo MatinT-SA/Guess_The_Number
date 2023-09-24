@@ -283,7 +283,6 @@ function restartButton() {
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
         document.getElementsByTagName('main')[0].style.transition = 'margin-top .4s ease-in-out';
         document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
-        document.querySelector('.restart').style.top = '3rem';
 
         // enabling the guess button after winning the game
         document.querySelector('.check').disabled = false;
@@ -301,6 +300,12 @@ function restartButton() {
         document.querySelector('.number').textContent = '?';
 
         hasWon = false;
+
+        if (screenWidth > 550) {
+            document.querySelector('.restart').style.top = '3rem';
+        } else {
+            document.querySelector('.restart').style.top = '1rem';
+        }
     } else {
         enteredNumber.value = null;
 
