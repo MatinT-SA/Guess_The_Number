@@ -113,7 +113,10 @@ function getValueOfCheckButton() {
 
                 document.querySelector('.result').textContent = result;
 
-                document.querySelector('.highscore').textContent = result;
+                if (result > highscore || highscore === 0) {
+                    highscore = result;
+                    document.querySelector('.highscore').textContent = highscore;
+                }
 
                 document.querySelector('.check').disabled = true;
 
@@ -172,7 +175,10 @@ function getValueOfCheckButton() {
 
                 document.querySelector('.result').textContent = result;
 
-                document.querySelector('.highscore').textContent = result;
+                if (result > highscore || highscore === 0) {
+                    highscore = result;
+                    document.querySelector('.highscore').textContent = highscore;
+                }
 
                 document.querySelector('.check').disabled = true;
 
