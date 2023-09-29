@@ -325,7 +325,7 @@ function restartButton() {
             document.querySelector('.restart').style.left = '2rem';
         }
 
-        if (screenWidth > 350) {
+        if (screenWidth < 350) {
             document.querySelector('.restart').style.left = '1rem';
         } else {
             document.querySelector('.restart').style.left = '1rem';
@@ -365,6 +365,7 @@ function restartButton() {
         } else {
             document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
             document.querySelector('.line').style.marginTop = '7rem';
+            document.querySelector('.restart').style.left = '4rem';
         }
 
         if (screenWidth < 550) {
@@ -372,7 +373,7 @@ function restartButton() {
             document.querySelector('.restart').style.left = '2rem';
         }
 
-        if (screenWidth > 350) {
+        if (screenWidth < 350) {
             document.querySelector('.restart').style.left = '1rem';
         } else {
             document.querySelector('.restart').style.left = '1rem';
@@ -422,10 +423,13 @@ function changeDifficulty() {
 function setDifficulty(difficulty) {
     if (difficulty === 'easy') {
         result = 15;
+        highscore = 0;
     } else if (difficulty === 'normal') {
         result = 10;
+        highscore = 0;
     } else if (difficulty === 'hard') {
         result = 7;
+        highscore = 0;
     }
 
     // New result value based on the difficulty selected
