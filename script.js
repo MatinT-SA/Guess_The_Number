@@ -125,7 +125,7 @@ function getValueOfCheckButton() {
                 document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
                 document.getElementsByTagName('main')[0].style.transition = 'margin-top .4s ease-in-out';
                 document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
-                document.querySelector('.restart').style.top = '5rem';
+
 
                 // Call the function to show the popup after the user wins the match
                 showCongratulationsPopup();
@@ -137,6 +137,12 @@ function getValueOfCheckButton() {
                     document.getElementsByTagName('main')[0].style.marginTop = '2rem';
                 } else {
                     document.querySelector('.line').style.marginTop = '14rem';
+                }
+
+                if (screenWidth < 550) {
+                    document.querySelector('.restart').style.top = '3rem';
+                } else {
+                    document.querySelector('.restart').style.top = '5rem';
                 }
 
                 return hasWon;
@@ -188,7 +194,6 @@ function getValueOfCheckButton() {
                 document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
                 document.getElementsByTagName('main')[0].style.transition = 'margin-top .4s ease-in-out';
                 document.querySelector('.restart').style.animation = 'rotateAnimation 1s ease-out forwards';
-                document.querySelector('.restart').style.top = '5rem';
                 // Call the function to show the popup after the user wins the match
                 showCongratulationsPopup();
 
@@ -201,6 +206,12 @@ function getValueOfCheckButton() {
                     document.getElementsByTagName('main')[0].style.marginTop = '2rem';
                 } else {
                     document.querySelector('.line').style.marginTop = '14rem';
+                }
+
+                if (screenWidth < 550) {
+                    document.querySelector('.restart').style.top = '3rem';
+                } else {
+                    document.querySelector('.restart').style.top = '5rem';
                 }
 
                 return hasWon;
@@ -311,6 +322,13 @@ function restartButton() {
             document.querySelector('.restart').style.top = '3rem';
         } else {
             document.querySelector('.restart').style.top = '1rem';
+            document.querySelector('.restart').style.left = '2rem';
+        }
+
+        if (screenWidth > 350) {
+            document.querySelector('.restart').style.left = '1rem';
+        } else {
+            document.querySelector('.restart').style.left = '1rem';
         }
     } else {
         enteredNumber.value = null;
@@ -320,13 +338,6 @@ function restartButton() {
 
         document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
 
-        if (screenWidth > 1600) {
-            document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
-            document.querySelector('.line').style.marginTop = '10rem';
-        } else {
-            document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
-            document.querySelector('.line').style.marginTop = '7rem';
-        }
 
 
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
@@ -346,6 +357,26 @@ function restartButton() {
         randomNumber = Math.trunc(Math.random() * 100) + 1;
         // replacing the number value with the new random number generated
         document.querySelector('.number').textContent = randomNumber;
+        document.querySelector('.number').textContent = '?';
+
+        if (screenWidth > 1600) {
+            document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+            document.querySelector('.line').style.marginTop = '10rem';
+        } else {
+            document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
+            document.querySelector('.line').style.marginTop = '7rem';
+        }
+
+        if (screenWidth < 550) {
+            document.querySelector('.restart').style.top = '1rem';
+            document.querySelector('.restart').style.left = '2rem';
+        }
+
+        if (screenWidth > 350) {
+            document.querySelector('.restart').style.left = '1rem';
+        } else {
+            document.querySelector('.restart').style.left = '1rem';
+        }
     }
 }
 
