@@ -521,6 +521,10 @@ h1 {
     .line {
         margin-top: 16rem !important;
     }
+
+    .popup-message {
+        margin: auto .5rem;
+    }
 }
 
 @media (max-width: 350px) {

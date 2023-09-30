@@ -139,7 +139,9 @@ function getValueOfCheckButton() {
                     document.querySelector('.line').style.marginTop = '14rem';
                 }
 
-                if (screenWidth < 550) {
+                if (screenWidth < 850) {
+                    document.querySelector('.line').style.marginTop = '17rem';
+                } else if (screenWidth < 550) {
                     document.querySelector('.restart').style.top = '3rem';
                 } else {
                     document.querySelector('.restart').style.top = '5rem';
@@ -208,7 +210,9 @@ function getValueOfCheckButton() {
                     document.querySelector('.line').style.marginTop = '14rem';
                 }
 
-                if (screenWidth < 550) {
+                if (screenWidth < 850) {
+                    document.querySelector('.line').style.marginTop = '17rem';
+                } else if (screenWidth < 550) {
                     document.querySelector('.restart').style.top = '3rem';
                 } else {
                     document.querySelector('.restart').style.top = '5rem';
@@ -318,7 +322,9 @@ function restartButton() {
 
         hasWon = false;
 
-        if (screenWidth > 550) {
+        if (screenWidth < 850) {
+            document.querySelector('.line').style.marginTop = '12rem';
+        } else if (screenWidth > 550) {
             document.querySelector('.restart').style.top = '3rem';
         } else {
             document.querySelector('.restart').style.top = '1rem';
