@@ -371,11 +371,14 @@ function restartButton() {
         } else {
             document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
             document.querySelector('.line').style.marginTop = '7rem';
-            document.querySelector('.restart').style.left = '6rem';
+            document.querySelector('.restart').style.left = '2rem';
+            document.querySelector('.restart').style.top = '1rem';
         }
 
         if (screenWidth < 850) {
             document.querySelector('.line').style.marginTop = '12rem';
+            document.querySelector('.restart').style.left = '4rem';
+            document.querySelector('.restart').style.top = '3rem';
         } else if (screenWidth > 550) {
             document.querySelector('.restart').style.top = '3rem';
         } else if (screenWidth < 350) {
