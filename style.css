@@ -530,11 +530,13 @@ h1 {
 @media (max-width: 350px) {
     .difficulty {
         right: 1rem;
+        top: 2rem;
         padding: .75rem 1.5rem;
     }
 
     .restart {
         left: 1rem;
+        top: 2rem;
         padding: .75rem 1.5rem;
     }
 

@@ -12,7 +12,7 @@ let randomNumber = Math.trunc(Math.random() * 100) + 1;
 const difficulty = document.querySelector('.difficulty');
 
 // Displaying the random number for troubleshooting
-// document.querySelector('.number').textContent = randomNumber;
+document.querySelector('.number').textContent = randomNumber;
 
 function showCongratulationsPopup() {
     setTimeout(function () {
@@ -295,10 +295,12 @@ function restartButton() {
         if (screenWidth > 1600) {
             document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
             document.querySelector('.line').style.marginTop = '10rem';
-        } else {
+        } else if (screenWidth < 1600 && screenWidth > 850) {
             document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
             document.querySelector('.line').style.marginTop = '7rem';
             document.getElementsByTagName('main')[0].style.marginTop = '0';
+            document.querySelector('.restart').style.top = '4rem';
+            document.querySelector('.restart').style.left = '3rem';
         }
 
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
@@ -322,19 +324,15 @@ function restartButton() {
 
         hasWon = false;
 
-        if (screenWidth < 850) {
+        if (screenWidth < 850 && screenWidth > 550) {
             document.querySelector('.line').style.marginTop = '12rem';
-        } else if (screenWidth < 550) {
+            document.querySelector('.restart').style.left = '4rem';
             document.querySelector('.restart').style.top = '3rem';
+        } else if (screenWidth < 350) {
+            document.querySelector('.restart').style.left = '1rem'
+            document.querySelector('.restart').style.top = '2rem';;
         } else {
-            document.querySelector('.restart').style.top = '1rem';
-            document.querySelector('.restart').style.left = '2rem';
-        }
-
-        if (screenWidth < 350) {
-            document.querySelector('.restart').style.left = '1rem';
-        } else {
-            document.querySelector('.restart').style.left = '1rem';
+            document.querySelector('.restart').style.left = '4rem';
         }
     } else {
         enteredNumber.value = null;
@@ -343,8 +341,6 @@ function restartButton() {
         document.querySelector('.title').textContent = 'Try To Guess The Number';
 
         document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
-
-
 
         document.querySelector('.line').style.transition = 'margin-top .4s ease-in-out';
         // document.querySelector('.restart').style.animation = 'undoRotateAnimation .5s ease-in-out forwards';
@@ -368,7 +364,7 @@ function restartButton() {
         if (screenWidth > 1600) {
             document.querySelector('.number').style.cssText = 'width: 16rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
             document.querySelector('.line').style.marginTop = '10rem!important';
-        } else {
+        } else if (screenWidth < 1600 && screenWidth > 850) {
             document.querySelector('.number').style.cssText = 'width: 13rem; border-radius: 50% 50% 10% 10%; color: #2c2c2c; text-shadow: none; transition: width .4s ease-in-out, border-radius .3s ease-in , color .3s ease-out, text-shadow .3s ease-out;';
             document.querySelector('.line').style.marginTop = '7rem';
             document.querySelector('.restart').style.marginLeft = '4rem';
@@ -380,9 +376,10 @@ function restartButton() {
             document.querySelector('.restart').style.left = '4rem';
             document.querySelector('.restart').style.top = '3rem';
         } else if (screenWidth < 350) {
-            document.querySelector('.restart').style.left = '1rem';
+            document.querySelector('.restart').style.left = '1rem'
+            document.querySelector('.restart').style.top = '2rem';;
         } else {
-            document.querySelector('.restart').style.left = '1rem';
+            document.querySelector('.restart').style.left = '4rem';
         }
     }
 }
