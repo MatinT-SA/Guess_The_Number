@@ -246,10 +246,10 @@ function getValueOfCheckButton() {
         }
         // determining the game over
         if (result > 1) {
-            result = result - 1;
+            result--
 
             if (hasWon) {
-                document.querySelector('.result').textContent = result + 1;
+                result++;
             } else {
                 document.querySelector('.result').textContent = result;
             }
@@ -427,12 +427,18 @@ function setDifficulty(difficulty) {
     if (difficulty === 'easy') {
         result = 15;
         highscore = 0;
+
+        document.querySelector('.difficulty-level').textContent = ': Easy';
     } else if (difficulty === 'normal') {
         result = 10;
         highscore = 0;
+
+        document.querySelector('.difficulty-level').textContent = ': Normal';
     } else if (difficulty === 'hard') {
         result = 7;
         highscore = 0;
+
+        document.querySelector('.difficulty-level').textContent = ': Hard';
     }
 
     // New result value based on the difficulty selected
