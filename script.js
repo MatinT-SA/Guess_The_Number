@@ -14,6 +14,10 @@ const difficulty = document.querySelector('.difficulty');
 // Displaying the random number for troubleshooting
 // document.querySelector('.number').textContent = randomNumber;
 
+const displayMessage = function(message){
+    document.querySelector('.message').textContent = message;
+}
+
 function showCongratulationsPopup() {
     setTimeout(function () {
         const popupContainer = document.createElement('div');
@@ -106,7 +110,7 @@ function getValueOfCheckButton() {
                 style.innerHTML = keyframes;
                 document.head.appendChild(style);
 
-                document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
+                displayMessage('🎀 CORRECT... Congratulations 🎀');
                 document.querySelector('.title').textContent = 'Try To Guess Another Number';
 
                 document.querySelector('.number').textContent = randomNumber;
@@ -151,11 +155,11 @@ function getValueOfCheckButton() {
 
             } else if (guess > randomNumber) {
                 // When the first guess is higher than our random number
-                document.querySelector('.message').textContent = 'Too High... Slow Down, Bruh 😁';
+                displayMessage('Too High... Slow Down, Bruh 😁');
                 previousComparison = "higher";
             } else {
                 // When the first guess is lower than our random number
-                document.querySelector('.message').textContent = 'Too Low... Higher 🧗‍♀️'
+                displayMessage('Too Low... Higher 🧗‍♀️');
                 previousComparison = "lower";
             }
             previousGuess = guess;
@@ -176,7 +180,7 @@ function getValueOfCheckButton() {
                 style.innerHTML = keyframes;
                 document.head.appendChild(style);
 
-                document.querySelector('.message').textContent = '🎀 CORRECT... Congratulations 🎀';
+                displayMessage('🎀 CORRECT... Congratulations 🎀');
                 document.querySelector('.title').textContent = 'Try To Guess Another Number';
 
                 document.querySelector('.number').textContent = randomNumber;
@@ -224,10 +228,10 @@ function getValueOfCheckButton() {
                 // When the second guess is higher than our random number
                 if (previousComparison === "lower") {
                     // When the second guess is higher and the previous guess is lower than our random number
-                    document.querySelector('.message').textContent = 'Too High... Slow Down, Bruh 😁';
+                    displayMessage('Too High... Slow Down, Bruh 😁');
                 } else {
                     // When the second guess is higher and the previous guess is higher than our random number
-                    document.querySelector('.message').textContent = 'Still Too High... Let the Sky Fall 😉';
+                    displayMessage('Still Too High... Let the Sky Fall 😉');
                 }
                 previousComparison = "higher";
                 previousGuess = guess;
@@ -235,10 +239,10 @@ function getValueOfCheckButton() {
                 // When the second guess is lower than our random number
                 if (previousComparison === "higher") {
                     // When the second guess is lower and our previous guess is higher
-                    document.querySelector('.message').textContent = 'Too Low... Higher 🧗‍♀️'
+                    displayMessage('Too Low... Higher 🧗‍♀️');
                 } else {
                     // When the second guess is lower and our previous guess is lower
-                    document.querySelector('.message').textContent = 'Still too low... More 🙄';
+                    displayMessage('Still too low... More 🙄');
                 }
                 previousComparison = "lower";
                 previousGuess = guess;
@@ -258,7 +262,7 @@ function getValueOfCheckButton() {
 
         } else {
             if (randomNumber !== guess) {
-                document.querySelector('.message').textContent = "Game Over!";
+                displayMessage("Game Over!");
                 document.querySelector('.result').textContent = 0;
                 document.querySelector('.check').disabled = true;
 
@@ -268,7 +272,7 @@ function getValueOfCheckButton() {
     }
     else {
         // No number has been entered
-        document.querySelector('.message').textContent = '🤨 Please Enter A Number!';
+        displayMessage('🤨 Please Enter A Number!');
     }
 }
 
@@ -287,7 +291,7 @@ function restartButton() {
         style.innerHTML = keyframesRestart;
         document.head.appendChild(style);
 
-        document.querySelector('.message').textContent = 'Start Guessing...';
+        displayMessage('Start Guessing...');
         document.querySelector('.title').textContent = 'Try To Guess The Number';
 
         document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
@@ -337,7 +341,7 @@ function restartButton() {
     } else {
         enteredNumber.value = null;
 
-        document.querySelector('.message').textContent = 'Start Guessing...';
+        displayMessage('Start Guessing...');
         document.querySelector('.title').textContent = 'Try To Guess The Number';
 
         document.querySelector('body').style.background = 'linear-gradient(90deg, rgba(2, 7, 53, 1) 0%, rgba(25, 13, 53, 1) 28%, rgba(29, 36, 31, 1) 48%, rgba(63, 40, 40, 1) 75%, rgba(56, 56, 56, 1) 100%)';
